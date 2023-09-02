@@ -28,15 +28,6 @@ public class EdgeController {
     }
 
 
-
-
-  /*  @GetMapping("/top-companies")
-    public String getTopCompanies() {
-        return circuitBreakerFactory.create("company-catalog-service")
-                .run(() -> restTemplate.getForObject("http://company-catalog-service/companies", String.class),
-                        throwable -> "Fallback: Unable to retrieve top companies at the moment");
-    }*/
-
     @GetMapping("/top-companies")
     @CircuitBreaker(name="companyCatalogueBreaker",fallbackMethod = "catalogueFallBack")
     public List<Company> getTopCompanies() {

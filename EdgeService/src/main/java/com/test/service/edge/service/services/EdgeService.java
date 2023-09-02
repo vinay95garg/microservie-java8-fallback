@@ -27,7 +27,5 @@ public class EdgeService {
     public List<Company> getTopITCompanies(){
         List<Company> companyList = catalogueService.getcompanies();
         return companyList;
-      //  Company[] companies =restTemplate.getForObject("http://CATALOGUE-SERVICE/companies/top", Company[].class);
-      //  return Arrays.asList(companies);
     }
 }
